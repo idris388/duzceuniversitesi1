@@ -1,0 +1,55 @@
+﻿@using WebApplication6.Models
+@model List<Duyurular>
+@{
+    ViewBag.Title = "DuyuruDetay";
+    Layout = "~/Views/Shared/_Tema.cshtml";
+}
+@foreach (var item in Model)
+{
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+
+
+
+                        <h2 class="entry-title">
+                            <a href="/Duyurular/Index">@item.DuyuruBaslik</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="/Duyurular/Index"><time datetime="2020-01-01">@item.DuyuruTarih.ToString("dd/MM/yyyy")</time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="/Duyurular/Index">@item.Kategori.KategoriAd</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <p class="ckeditor">
+                                @Html.Raw(item.İcerik)
+                            </p>
+                        </div>
+                        <img src="@item.DuyuruBaslikResim" class="img-fluid" alt="">
+
+                        <br />
+                        <br />
+
+
+
+                    </article><!-- End blog entry -->
+                    <!-- End blog author bio -->
+
+
+                </div><!-- End blog entries list -->
+
+            </div>
+
+        </div>
+    </section>
+}
+<script src="~/ckeditor/ckeditor.js"></script>

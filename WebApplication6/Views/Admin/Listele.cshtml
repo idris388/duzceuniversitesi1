@@ -1,0 +1,23 @@
+﻿@using WebApplication6.Models
+@model List<Üniversitemiz>
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Üniversite Genel Bilgi Güncelleme paneli</h1>
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>Baslik</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.id</td>
+            <td>@i.Baslik</td>
+            <td><a href="/Admin/UniversiteBilgiGetir/@i.id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>

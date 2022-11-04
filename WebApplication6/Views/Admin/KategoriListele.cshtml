@@ -1,0 +1,27 @@
+﻿@using WebApplication6.Models
+@model List<Kategori>
+@{
+    ViewBag.Title = "KategoriListele";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Kategori Listesi</h2>
+
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>Kategori Adı</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.KategoriId</td>
+            <td>@i.KategoriAd</td>
+            <td><a href="/Admin/KategoriGetir/@i.KategoriId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/KategoriEkle" class="btn btn-info">Yeni Kategori</a>

@@ -1,0 +1,17 @@
+﻿@model WebApplication6.Models.Üniversitemiz
+@{
+    ViewBag.Title = "HakkimizdaEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("HakkimizdaEkle", "Admin", FormMethod.Post))
+{
+    <textarea name="İcerik" id="editor" class="ckeditor" placeholder="İcerik Buraya"></textarea>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <button class="btn btn-info">Yazıyı Kaydet</button>
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+<link href="~/ckeditor/contents.css" rel="stylesheet" />

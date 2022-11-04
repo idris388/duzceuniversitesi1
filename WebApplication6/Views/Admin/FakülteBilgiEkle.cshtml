@@ -1,0 +1,49 @@
+﻿@model WebApplication6.Models.FakülteGenelBilgi
+
+@{
+    ViewBag.Title = "FakülteBilgiEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Fakülte Bilgi Sayfası</h2>
+
+<form class="form form-group" method="post">
+    <label style="margin-top:15px">Genel Bilgi Giriniz</label>
+    <textarea name="GenelBilgi" id="editor" class="ckeditor" placeholder="Resim Buraya"></textarea>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <label style="margin-top:15px">Yönetim Bilgisi Giriniz</label>
+    <textarea name="Yonetim" id="editor" class="ckeditor" placeholder="İcerik Buraya"></textarea>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <label style="margin-top:15px">Personel Bilgisi Giriniz</label>
+    <textarea name="Personel" id="editor" class="ckeditor" placeholder="İcerik Buraya"></textarea>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <label style="margin-top:15px">Ogrenci Bilgisi Giriniz</label>
+    <textarea name="Ogrenci" id="editor" class="ckeditor" placeholder="İcerik Buraya"></textarea>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <label style="margin-top:15px">Fakülte Bilgisi Giriniz</label>
+    <textarea name="Fakültemiz" id="editor" class="ckeditor" placeholder="İcerik Buraya"></textarea>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <label style="margin-top:15px">Kategori Seçiniz</label>
+    @Html.DropDownListFor(x => x.FakülteID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+    <br />
+
+    <button class="btn btn-info" id="btn1">Kaydet</button>
+</form>
+<script src="~/ckeditor/ckeditor.js"></script>
+<link href="~/ckeditor/contents.css" rel="stylesheet" />

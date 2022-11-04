@@ -1,0 +1,50 @@
+﻿@using WebApplication6.Models
+@model List<FakülteGenelBilgi>
+@{
+    ViewBag.Title = "DuzceGenelBilgi";
+    Layout = "~/Views/Shared/_Tema.cshtml";
+}
+
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>
+                Düzce Meslek Yüksekokulu
+            </h2>
+            <ol>
+                <li><a href="/Anasayfa/Index">Anasayfa</a></li>
+                <li><a href="/Fakülteler/DuzceGenelBilgi">Genel Bilgi</a></li>
+                <li><a href="/Fakülteler/DuzcePersonel">Personel</a></li>
+                <li><a href="/Fakülteler/DuzceYonetim">Yönetim</a></li>
+                <li><a href="/Fakülteler/DuzceÖgrenci">Ders Programı</a></li>
+                <li><a href="/Fakülteler/DuzceFakülte">İletişim</a></li>
+                <li>
+                    Düzce Meslek Yüksekokulu
+                </li>
+            </ol>
+        </div>
+
+    </div>
+</section>
+@foreach (var item in Model)
+{
+
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-8 entries">
+                    <article class="entry entry-single">
+                        <div class="entry-content">
+                            <p class="ckeditor">
+                                @Html.Raw(item.Yonetim)
+                            </p>
+                        </div>
+                    </article><!-- End blog entry -->
+                </div><!-- End blog entries list -->
+            </div>
+
+        </div>
+    </section>
+}
+<script src="~/ckeditor/ckeditor.js"></script>

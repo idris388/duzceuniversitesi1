@@ -1,0 +1,34 @@
+﻿@model WebApplication6.Models.FakülteGenelBilgi
+@{
+    ViewBag.Title = "FakulteBilgiGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Fakülte Güncelleme</h2>
+<br />
+@using (Html.BeginForm("FakulteBilgiGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    <label>Genel Bilgi Giriniz</label>
+    @Html.TextAreaFor(x => x.GenelBilgi, new { @class = "ckeditor" })
+    <br />
+    <label>Personel Bilgi Giriniz</label>
+    @Html.TextAreaFor(x => x.Personel, new { @class = "ckeditor" })
+    <br />
+    <label>Yonetim Bilgi Giriniz</label>
+    @Html.TextAreaFor(x => x.Yonetim, new { @class = "ckeditor" })
+    <br />
+    <label>Öğrenci Bilgi Giriniz</label>
+    @Html.TextAreaFor(x => x.Ogrenci, new { @class = "ckeditor" })
+    <br />
+    <label>Fakülte Bilgi Giriniz</label>
+    @Html.TextAreaFor(x => x.Fakültemiz, new { @class = "ckeditor" })
+    <br />
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+
+}
+<script src="~/ckeditor/ckeditor.js"></script>

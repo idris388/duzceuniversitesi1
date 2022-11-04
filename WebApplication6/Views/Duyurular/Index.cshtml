@@ -1,0 +1,55 @@
+﻿@using WebApplication6.Models
+@using PagedList
+@using PagedList.Mvc
+@model  PagedList.IPagedList<Duyurular>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Tema.cshtml";
+}
+
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+        <h1 style="color:cadetblue">Duyurular</h1>
+        @foreach (var item in Model)
+        {
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry">
+
+                        <div class="entry-img">
+                            <img src="@item.DuyuruBaslikResim" alt="Image" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a href="/Duyurular/DuyuruDetay/@item.ID">@item.DuyuruBaslik</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="/Duyurular/DuyuruDetay/@item.ID"><time datetime="2020-01-01">@item.DuyuruTarih.ToString("dd/MM/yyyy")</time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="/Duyurular/Index">@item.Kategori.KategoriAd</a></li>
+
+                            </ul>
+                        </div>
+                        <button class="btn btn-outline-primary"><a href="/Duyurular/DuyuruDetay/@item.ID">Detay</a></button>
+                    </article><!-- End blog entry -->
+
+
+
+                </div><!-- End blog entries list -->
+
+            </div>
+
+
+
+
+        }
+    </div>
+    <div class="blog-pagination">
+        <ul class="justify-content-center">
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+        </ul>
+    </div>
+</section>

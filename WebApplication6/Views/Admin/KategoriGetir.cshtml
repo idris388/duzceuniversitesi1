@@ -1,0 +1,17 @@
+﻿@model WebApplication6.Models.Kategori
+
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Kategori Güncelleme</h2>
+<br />
+@using (Html.BeginForm("KategoriGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.KategoriId)
+    <label>Baslik Giriniz</label>
+    @Html.TextAreaFor(x => x.KategoriAd, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+
+}

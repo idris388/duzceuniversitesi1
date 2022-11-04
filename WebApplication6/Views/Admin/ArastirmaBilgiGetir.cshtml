@@ -1,0 +1,24 @@
+﻿@model WebApplication6.Models.Arastirma
+@{
+    ViewBag.Title = "ArastirmaBilgiGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("ArastirmaBilgiGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    <label>Baslik Giriniz</label>
+    @Html.TextAreaFor(x => x.Baslik, new { @class = "ckeditor" })
+    <br />
+    <label>İçerik Giriniz</label>
+    @Html.TextAreaFor(x => x.İcerik, new { @class = "ckeditor" })
+    <br />
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+
+}
+<script src="~/ckeditor/ckeditor.js"></script>

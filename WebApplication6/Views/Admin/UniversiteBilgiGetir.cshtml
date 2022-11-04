@@ -1,0 +1,27 @@
+﻿@model WebApplication6.Models.Üniversitemiz
+@{
+    ViewBag.Title = "UniversiteBilgiGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("UniversiteBilgiGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.id)
+    <label>Baslik Giriniz</label>
+    @Html.TextAreaFor(x => x.Baslik,new { @class = "ckeditor" })
+    <br />
+    <label>İçerik Giriniz</label>
+    @Html.TextAreaFor(x => x.İcerik ,new { @class = "ckeditor" })
+    <br />
+    <label>Resim Giriniz</label>
+    @Html.TextAreaFor(x => x.Resim, new { @class = "ckeditor" })
+    <br />
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+
+}
+<script src="~/ckeditor/ckeditor.js"></script>

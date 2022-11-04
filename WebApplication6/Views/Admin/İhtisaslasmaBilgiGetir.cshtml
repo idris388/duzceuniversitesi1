@@ -1,0 +1,26 @@
+﻿@model WebApplication6.Models.İhtisaslaşma
+
+@{
+    ViewBag.Title = "İhtisaslasmaBilgiGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>İhtisaslaşma Bilgi Güncelleme</h2>
+<br />
+@using (Html.BeginForm("İhtisaslasmaBilgiGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    <label>Baslik Giriniz</label>
+    @Html.TextAreaFor(x => x.Baslik, new { @class = "ckeditor" })
+    <br />
+    <label>İçerik Giriniz</label>
+    @Html.TextAreaFor(x => x.İcerik, new { @class = "ckeditor" })
+    <br />
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+
+}
+<script src="~/ckeditor/ckeditor.js"></script>

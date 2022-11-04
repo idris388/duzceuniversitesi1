@@ -1,0 +1,35 @@
+﻿@model WebApplication6.Models.Duyurular
+
+@{
+    ViewBag.Title = "DuyuruEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Duyuru Sayfası</h2>
+
+<form class="form form-group" method="post">
+    <label style="margin-top:15px">Duyuru Başlığı Giriniz</label>
+    @Html.TextBoxFor(x => x.DuyuruBaslik, new { @class = "form-control" })
+    <br />
+    <label style="margin-top:15px">Tarih Giriniz</label>
+    <input type="date" name="DuyuruTarih" class="form-control" value="" />
+    <br />
+    <label style="margin-top:15px">Kategori Seçiniz</label>
+    @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    <label style="margin-top:15px">Duyuru Başlığı için Resim Seçiniz</label>
+    <textarea name="DuyuruBaslikResim" id="editor" class="form-control" placeholder="Resim Buraya"></textarea>
+    <label><a href="https://imgyukle.com/">Duyuru Basligini Hizli Resim Olarak YÜKLEYİNİZ !! </a>Resim URL Adresini Kopyalayıp Yapıştırınız.</label>
+    <br />
+    <label style="margin-top:15px">Duyuru İçeri Giriniz</label>
+
+    <textarea name="İcerik" id="editor" class="ckeditor" placeholder="İcerik Buraya"></textarea>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+    <br />
+    <button class="btn btn-info" id="btn1">Kaydet</button>
+</form>
+<script src="~/ckeditor/ckeditor.js"></script>
+<link href="~/ckeditor/contents.css" rel="stylesheet" />
